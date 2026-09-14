@@ -28,7 +28,6 @@ def restore_tree(code: str) -> TreeNode:
             current = child
         elif ch == "1":
             if current.parent is None:
-                # подсветим проблемный символ
                 pointer = " " * (i - 1) + "^"
                 raise ValueError(
                     f"попытка выйти вверх из корня\n"
@@ -86,7 +85,6 @@ def tree_stats(root: TreeNode):
     return count, leaves, depth
 
 def format_tree(root: TreeNode) -> str:
-    """Возвращает красивое ASCII-представление дерева."""
     lines = [f"[{root.label}]"]
 
     def walk(node, prefix=""):
@@ -150,7 +148,7 @@ def main():
     try:
         root = restore_tree(code)
     except ValueError as e:
-        print("\n❌  Ошибка в коде:")
+        print("Ошибка в коде:")
         print(f"    {e}")
         return
 
